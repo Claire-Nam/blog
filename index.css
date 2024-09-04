@@ -1,3 +1,4 @@
+/* 전체 초기화 */
 * {
   margin: 0;
   padding: 0;
@@ -24,10 +25,14 @@ a {
   margin-left: 15px;
 }
 
+.menu {
+  display: flex;
+  align-items: center;
+}
+
 .menu > li {
   list-style: none;
   width: 230px;
-  float: left;
   text-align: center;
   line-height: 50px;
   background-color: #f2d2cf;
@@ -58,7 +63,7 @@ a {
 
 /* 메뉴바 hover 했을 때 */
 .menu > li:hover > a {
-  text-decoration: underline 3px solid #ea4335; /* 링크에만 적용 */
+  text-decoration: underline 3px solid #ea4335;
   transition-duration: 0.5s;
   cursor: pointer;
 }
@@ -76,7 +81,7 @@ a {
 .menu > li:hover .sub-menu {
   height: 150px;
   transition-duration: 1s;
-  display: block; /* hover 시에 보이도록 */
+  display: block;
   list-style: none;
 }
 
@@ -84,7 +89,7 @@ a {
 label {
   margin: 8px 15px;
   display: flex;
-  align-items: center; /* 검색바와 버튼을 같은 라인에 */
+  align-items: center;
 }
 
 .search input {
@@ -123,12 +128,10 @@ footer {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-
-  /* footer 위치 고정 */
   min-width: 100%;
   min-height: 200px;
   bottom: 0px;
-  position: absolute; /* relative 스크롤에 따라 위치 이동 */
+  position: absolute;
 }
 
 footer > img {
@@ -157,9 +160,10 @@ h4 {
 
 /* 미디어 쿼리 적용 */
 @media screen and (max-width: 750px) {
+  /* PC 버전에서 보이는 메뉴는 숨김 */
   .menu {
     display: none;
-    flex-direction: column; /* 세로 정렬 */
+    flex-direction: column;
     background-color: #f2d2cf;
     position: absolute;
     top: 50px;
@@ -174,9 +178,14 @@ h4 {
   }
 
   #hamburger-menu {
-    display: block;
+    display: block; /* 모바일 크기에서만 햄버거 메뉴 표시 */
     margin-right: 15px;
   }
+}
+
+/* 기본 상태에서는 햄버거 메뉴 숨김 */
+#hamburger-menu {
+  display: none;
 }
 
 #hamburger-menu > img {
