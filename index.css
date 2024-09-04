@@ -104,3 +104,36 @@ label {
 .search-btn {
   display: inline-block;
 }
+
+/* footer */
+footer {
+  background-color: #f4e8ff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+footer > img {
+  width: 200px;
+  height: 200px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+.footer-body > p {
+  margin: 10px auto;
+}
+
+.footer-body > button {
+  background: none;
+  background-color: #d2a5ff;
+  border: none;
+  border-radius: 26px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px 10px;
+  cursor: pointer;
+}
