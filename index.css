@@ -9,7 +9,7 @@ nav {
   width: 100%;
   background-color: #f2d2cf;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 a {
@@ -21,9 +21,7 @@ a {
 .logo {
   width: 50px;
   height: 50px;
-  float: left;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  margin-left: 15px;
 }
 
 .menu > li {
@@ -55,6 +53,7 @@ a {
   line-height: 50px;
   background-color: #f2d2cf;
   text-align: center;
+  margin-right: 15px;
 }
 
 /* 메뉴바 hover 했을 때 */
@@ -83,7 +82,9 @@ a {
 
 /* 검색바 */
 label {
-  margin: 15px 15px;
+  margin: 8px 15px;
+  display: flex;
+  align-items: center; /* 검색바와 버튼을 같은 라인에 */
 }
 
 .search input {
@@ -103,11 +104,12 @@ label {
   border: none;
   margin-top: 5px;
   cursor: pointer;
+  display: inline-flex;
 }
 
 .search img {
-  width: 23px;
-  height: 23px;
+  width: 25px;
+  height: 25px;
 }
 
 .search-btn {
@@ -117,8 +119,6 @@ label {
 /* footer */
 footer {
   background-color: #f4e8ff;
-  /* background-image: url("image/blog.jpg");
-  background-repeat: no-repeat; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -159,24 +159,38 @@ h4 {
 @media screen and (max-width: 750px) {
   .menu {
     display: none;
+    flex-direction: column; /* 세로 정렬 */
+    background-color: #f2d2cf;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 100%;
   }
+
+  .menu > li {
+    text-align: center;
+    margin-right: 0;
+    border-bottom: 1px solid #ea4335;
+  }
+
   #hamburger-menu {
     display: block;
+    margin-right: 15px;
   }
 }
 
-#hamburger-menu {
-  display: none;
-  cursor: pointer;
-}
-
-#hamburger-menu img {
-  display: flex;
-  justify-content: flex-end;
+#hamburger-menu > img {
+  width: 30px;
 }
 
 #hamburger-menu div {
   width: 25px;
   height: 3px;
+  background-color: #333;
   margin: 6px 0;
+}
+
+/* 햄버거 메뉴 클릭 시 토글 */
+#hamburger-menu.active + .menu {
+  display: flex;
 }
