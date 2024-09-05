@@ -1,0 +1,205 @@
+/* 전체 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 내브바 */
+nav {
+  width: 100%;
+  background-color: #f2d2cf;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: #ea4335;
+  font-weight: bold;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+.menu > li {
+  list-style: none;
+  width: 230px;
+  text-align: center;
+  line-height: 50px;
+  background-color: #f2d2cf;
+  position: relative; /* 부모 요소 relative */
+}
+
+.menu > a {
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.sub-menu > li {
+  line-height: 50px;
+  background-color: #f2d2cf;
+  text-align: center;
+  margin-right: 15px;
+}
+
+/* 메뉴바 hover 했을 때 */
+.menu > li:hover > a {
+  text-decoration: underline 3px solid #ea4335;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+
+.sub-menu li:hover {
+  transition-duration: 0.5s;
+  background-color: #ea4335;
+  cursor: pointer;
+}
+
+.sub-menu > li:hover > a {
+  color: white;
+}
+
+.menu > li:hover .sub-menu {
+  height: 150px;
+  transition-duration: 1s;
+  display: block;
+  list-style: none;
+}
+
+/* 검색바 */
+label {
+  margin: 8px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  background-color: #f2d2cf;
+  border: none;
+  border-bottom: 2px solid #ea4335;
+  height: 20px;
+  padding: 5px 8px;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search button {
+  background: none;
+  border: none;
+  margin-top: 5px;
+  cursor: pointer;
+  display: inline-flex;
+}
+
+.search img {
+  width: 25px;
+  height: 25px;
+}
+
+.search-btn {
+  display: inline-block;
+}
+
+/* footer */
+footer {
+  background-color: #f4e8ff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  min-width: 100%;
+  min-height: 200px;
+  bottom: 0px;
+  position: absolute;
+}
+
+footer > img {
+  width: 375px;
+  height: 200px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+.footer-body > p {
+  margin: 10px auto;
+}
+
+.footer-body > button {
+  background: none;
+  background-color: #d2a5ff;
+  border: none;
+  border-radius: 26px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* 미디어 쿼리 적용 */
+@media screen and (max-width: 750px) {
+  /* PC 버전에서 보이는 메뉴는 숨김 */
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: #f2d2cf;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 100%;
+  }
+
+  .menu > li {
+    text-align: center;
+    margin-right: 0;
+    border-bottom: 1px solid #ea4335;
+  }
+
+  #hamburger-menu {
+    display: block; /* 모바일 크기에서만 햄버거 메뉴 표시 */
+    margin-right: 15px;
+  }
+}
+
+/* 기본 상태에서는 햄버거 메뉴 숨김 */
+#hamburger-menu {
+  display: none;
+}
+
+#hamburger-menu > img {
+  width: 30px;
+}
+
+#hamburger-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 6px 0;
+}
+
+/* 햄버거 메뉴 클릭 시 토글 */
+#hamburger-menu.active + .menu {
+  display: flex;
+}
